@@ -1,0 +1,16 @@
+server:
+    port:
+spring:
+  influxdb:
+    url:
+    username:
+    password:
+    database:
+    retention-policy:
+  rabbitmq:
+    ipAddress:
+    username:
+    password:
+    exchange:
+    queue:
+    gatewayId:
