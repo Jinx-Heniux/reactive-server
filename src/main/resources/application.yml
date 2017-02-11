@@ -1,0 +1,16 @@
+server:
+    port: 8084
+spring:
+  influxdb:
+    url: http://nextrun.fr:8086
+    username: jluccisano
+    password: gussufyr
+    database: sensor
+    retention-policy: one_years_only
+  rabbitmq:
+    ipAddress: 192.95.25.173
+    username: guest
+    password: guest
+    exchange: exchange_event
+    queue: queue_raspberry_1
+    gatewayId: raspberry_1
