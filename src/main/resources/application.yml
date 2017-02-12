@@ -1,0 +1,15 @@
+server:
+    port: 8084
+spring:
+  profiles: dev
+  influxdb:
+    url: http://localhost:8086
+    username: influx_username
+    password: influx_password
+    database: influx_db_name
+    retention-policy: influx_rp_name
+  rabbitmq:
+    endpoint: amqp://rabbit_user:rabbit_password@localhost:5672/myvhost
+    exchange: your_exchange_name
+    queue: your_queue_name
+    gatewayId: your_gateway_id

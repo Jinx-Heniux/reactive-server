@@ -1,0 +1,48 @@
+version: '2'
+services:
+  reactive-server:
+    image: "jluccisano/reactive-server:latest"
+    environment:
+      - PORT=8084
+      - RABBITMQ_ENDPOINT=amqp://guest:guest@rabbitmq:5672/myVhost
+      - RABBITMQ_EXCHANGE=EXCHANGE_NAME
+      - RABBITMQ_QUEUE=queue_raspberry_1
+      - RABBITMQ_GATEWAYID=raspberry_1
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_USERNAME=jluccisano
+      - INFLUXDB_PASSWORD=gussufyr
+      - INFLUXDB_DATABASE=sensor
+      - INFLUXDB_RETENTION_POLICY=one_years_only
+    ports:
+      - "8084:8084"
+    links:
+      - "rabbitmq:rabbitmq"
+      - "influx-db:influx-db"
+    depends_on:
+      - rabbitmq
+      - influx-db
+  rabbitmq:
+    image:  "rabbitmq:3-management"
+    hostname: "rabbitmq"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=myVhost
+    ports:
+     - "5672:5672"
+     - "8092:15672"
+  influx-db:
+    image: "bbinet/influxdb"
+    hostname: "influxdb"
+    volumes:
+      - '/usr/lib/influxdb:/var/lib/influxdb'
+    environment:
+      - ROOT_PASSWORD=gussufyr
+      - PRE_CREATE_DB=sensor
+      - PRE_CREATE_USER=jluccisano
+      - jluccisano_PASSWORD=gussufyr
+      - jluccisano_ADMIN=true
+      - sensor_jluccisano_GRANT=all
+    ports:
+      - "8083:8083"
+      - "8086:8086"

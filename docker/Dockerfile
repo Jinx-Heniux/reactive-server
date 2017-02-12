@@ -1,0 +1,28 @@
+FROM java:8u111-jdk-alpine
+
+ADD /reactive-server-0.0.1-SNAPSHOT.jar //
+
+ENV PORT=$PORT
+ENV RABBITMQ_ENDPOINT=$RABBITMQ_ENDPOINT
+ENV RABBITMQ_EXCHANGE=$RABBITMQ_EXCHANGE
+ENV RABBITMQ_QUEUE=$RABBITMQ_QUEUE
+ENV RABBITMQ_GATEWAYID=$RABBITMQ_GATEWAYID
+ENV INFLUXDB_URL=$INFLUXDB_URL
+ENV INFLUXDB_USERNAME=$INFLUXDB_USERNAME
+ENV INFLUXDB_PASSWORD=$INFLUXDB_PASSWORD
+ENV INFLUXDB_DATABASE=$INFLUXDB_DATABASE
+ENV INFLUXDB_RETENTION_POLICY=$INFLUXDB_RETENTION_POLICY
+
+CMD java -jar reactive-server-0.0.1-SNAPSHOT.jar \
+    --server.port=$PORT \
+    --spring.rabbitmq.endpoint=$RABBITMQ_ENDPOINT \
+    --spring.rabbitmq.exchange=$RABBITMQ_EXCHANGE \
+    --spring.rabbitmq.queue=$RABBITMQ_QUEUE \
+    --spring.rabbitmq.gatewayId=$RABBITMQ_GATEWAYID \
+    --spring.influxdb.url=$INFLUXDB_URL \
+    --spring.influxdb.username=$INFLUXDB_USERNAME \
+    --spring.influxdb.password=$INFLUXDB_PASSWORD \
+    --spring.influxdb.database=$INFLUXDB_DATABASE \
+    --spring.influxdb.retention-policy=$INFLUXDB_RETENTION_POLICY
+
+
