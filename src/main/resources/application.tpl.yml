@@ -1,0 +1,10 @@
+server:
+    port:
+spring:
+  rabbitmq:
+    ipAddress:
+    username:
+    password:
+    exchange:
+    queue:
+    gatewayId:
