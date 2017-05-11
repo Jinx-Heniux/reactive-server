@@ -22,9 +22,6 @@ import java.util.concurrent.TimeUnit;
 public class ReceiveHandlerImpl implements ReceiveHandler {
 
     @Autowired
-    PublishServiceImpl publishService;
-
-    @Autowired
     InfluxDBService influxDBService;
 
 
@@ -49,7 +46,6 @@ public class ReceiveHandlerImpl implements ReceiveHandler {
                 .build();
 
         influxDBService.write(point);
-        publishService.publish("/queue/DHT22",message.getData());
     }
 
 
