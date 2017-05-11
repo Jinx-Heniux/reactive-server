@@ -12,6 +12,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.net.URI;
+
 /**
  * Created by jls on 02/03/17.
  */
@@ -30,9 +32,7 @@ public class RabbitMQConfig {
 
     @Bean
     public ConnectionFactory connectionFactory() {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(rabbitMQProperties.getIpAddress());
-        connectionFactory.setUsername(rabbitMQProperties.getUsername());
-        connectionFactory.setPassword(rabbitMQProperties.getPassword());
+        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(URI.create(rabbitMQProperties.getEndpoint()));
         return connectionFactory;
     }
 
