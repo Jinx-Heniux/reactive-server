@@ -12,9 +12,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class RabbitMQProperties {
 
     @NotEmpty
-    private String ipAddress;
+    private String endpoint;
     @NotEmpty
-    private String username;
+    private String exchange;
     @NotEmpty
-    private String password;
+    private String queue;
+    @NotEmpty
+    private String gatewayId;
 }

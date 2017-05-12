@@ -19,9 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-/**
- * Created by jls on 01/03/17.
- */
+
 @RestController
 @RequestMapping("/api/v1/sensor/dht22")
 @Api(value = "dht22", description = "DHT22 Sensor data")
