@@ -3,7 +3,7 @@
 
 ### Architecture Overview
 
-![Architecture Overview](http://localhost:4000/assets/images/consume-data-from-rabbitmq.png)
+![Architecture Overview](https://jluccisano.github.io/assets/images/consume-data-from-rabbitmq.png)
 
 #### Prerequisites
 maven
