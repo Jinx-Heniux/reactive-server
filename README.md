@@ -1,6 +1,10 @@
 [![Build Status](https://travis-ci.org/jluccisano/reactive-server.svg?branch=master)](https://travis-ci.org/jluccisano/reactive-server)
 
 
+### Architecture Overview
+
+![Architecture Overview](http://localhost:4000/assets/images/consume-data-from-rabbitmq.png)
+
 #### Prerequisites
 maven
 docker
